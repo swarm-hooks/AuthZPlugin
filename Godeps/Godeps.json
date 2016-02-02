@@ -1,0 +1,82 @@
+{
+	"ImportPath": "github.com/AuthZPluginBackEnd",
+	"GoVersion": "go1.5.2",
+	"Packages": [
+		"./..."
+	],
+	"Deps": [
+		{
+			"ImportPath": "github.com/Sirupsen/logrus",
+			"Comment": "v0.8.7-53-g446d1c1",
+			"Rev": "446d1c146faa8ed3f4218f056fcd165f6bcfda81"
+		},
+		{
+			"ImportPath": "github.com/docker/docker/api",
+			"Comment": "v1.4.1-9744-g5f5a752",
+			"Rev": "5f5a752bcf687aab0120e6c7903922ff01371ec0"
+		},
+		{
+			"ImportPath": "github.com/docker/docker/pkg/authorization",
+			"Comment": "v1.4.1-9744-g5f5a752",
+			"Rev": "5f5a752bcf687aab0120e6c7903922ff01371ec0"
+		},
+		{
+			"ImportPath": "github.com/docker/docker/pkg/ioutils",
+			"Comment": "v1.4.1-9744-g5f5a752",
+			"Rev": "5f5a752bcf687aab0120e6c7903922ff01371ec0"
+		},
+		{
+			"ImportPath": "github.com/docker/docker/pkg/plugins",
+			"Comment": "v1.4.1-9744-g5f5a752",
+			"Rev": "5f5a752bcf687aab0120e6c7903922ff01371ec0"
+		},
+		{
+			"ImportPath": "github.com/docker/docker/pkg/system",
+			"Comment": "v1.4.1-9744-g5f5a752",
+			"Rev": "5f5a752bcf687aab0120e6c7903922ff01371ec0"
+		},
+		{
+			"ImportPath": "github.com/docker/docker/pkg/version",
+			"Comment": "v1.4.1-9744-g5f5a752",
+			"Rev": "5f5a752bcf687aab0120e6c7903922ff01371ec0"
+		},
+		{
+			"ImportPath": "github.com/docker/engine-api/client",
+			"Comment": "v0.2.0",
+			"Rev": "259fce04b5a17bc7a202090d52ca873762fa8b25"
+		},
+		{
+			"ImportPath": "github.com/docker/engine-api/types",
+			"Comment": "v0.2.0",
+			"Rev": "259fce04b5a17bc7a202090d52ca873762fa8b25"
+		},
+		{
+			"ImportPath": "github.com/docker/go-connections/nat",
+			"Comment": "v0.1.2",
+			"Rev": "4e42727957c146776e5de9cec8c39e4059ed9f20"
+		},
+		{
+			"ImportPath": "github.com/docker/go-connections/sockets",
+			"Comment": "v0.1.2",
+			"Rev": "4e42727957c146776e5de9cec8c39e4059ed9f20"
+		},
+		{
+			"ImportPath": "github.com/docker/go-connections/tlsconfig",
+			"Comment": "v0.1.2",
+			"Rev": "4e42727957c146776e5de9cec8c39e4059ed9f20"
+		},
+		{
+			"ImportPath": "github.com/docker/go-units",
+			"Comment": "v0.1.0-21-g0bbddae",
+			"Rev": "0bbddae09c5a5419a8c6dcdd7ff90da3d450393b"
+		},
+		{
+			"ImportPath": "github.com/docker/libtrust",
+			"Rev": "9cbd2a1374f46905c68a4eb3694a130610adc62a"
+		},
+		{
+			"ImportPath": "golang.org/x/net/context",
+			"Rev": "4fd4a9fed55e5bdee4a89d6406c2eabe38b60300"
+		}
+	]
+}
