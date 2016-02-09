@@ -11,11 +11,6 @@
 			"Rev": "446d1c146faa8ed3f4218f056fcd165f6bcfda81"
 		},
 		{
-			"ImportPath": "github.com/docker/docker/api",
-			"Comment": "v1.4.1-9744-g5f5a752",
-			"Rev": "5f5a752bcf687aab0120e6c7903922ff01371ec0"
-		},
-		{
 			"ImportPath": "github.com/docker/docker/pkg/authorization",
 			"Comment": "v1.4.1-9744-g5f5a752",
 			"Rev": "5f5a752bcf687aab0120e6c7903922ff01371ec0"
@@ -29,31 +24,6 @@
 			"ImportPath": "github.com/docker/docker/pkg/plugins",
 			"Comment": "v1.4.1-9744-g5f5a752",
 			"Rev": "5f5a752bcf687aab0120e6c7903922ff01371ec0"
-		},
-		{
-			"ImportPath": "github.com/docker/docker/pkg/system",
-			"Comment": "v1.4.1-9744-g5f5a752",
-			"Rev": "5f5a752bcf687aab0120e6c7903922ff01371ec0"
-		},
-		{
-			"ImportPath": "github.com/docker/docker/pkg/version",
-			"Comment": "v1.4.1-9744-g5f5a752",
-			"Rev": "5f5a752bcf687aab0120e6c7903922ff01371ec0"
-		},
-		{
-			"ImportPath": "github.com/docker/engine-api/client",
-			"Comment": "v0.2.0",
-			"Rev": "259fce04b5a17bc7a202090d52ca873762fa8b25"
-		},
-		{
-			"ImportPath": "github.com/docker/engine-api/types",
-			"Comment": "v0.2.0",
-			"Rev": "259fce04b5a17bc7a202090d52ca873762fa8b25"
-		},
-		{
-			"ImportPath": "github.com/docker/go-connections/nat",
-			"Comment": "v0.1.2",
-			"Rev": "4e42727957c146776e5de9cec8c39e4059ed9f20"
 		},
 		{
 			"ImportPath": "github.com/docker/go-connections/sockets",
@@ -71,8 +41,20 @@
 			"Rev": "0bbddae09c5a5419a8c6dcdd7ff90da3d450393b"
 		},
 		{
-			"ImportPath": "github.com/docker/libtrust",
-			"Rev": "9cbd2a1374f46905c68a4eb3694a130610adc62a"
+			"ImportPath": "github.com/gorilla/context",
+			"Rev": "1c83b3eabd45b6d76072b66b746c20815fb2872d"
+		},
+		{
+			"ImportPath": "github.com/gorilla/mux",
+			"Rev": "26a6070f849969ba72b72256e9f14cf519751690"
+		},
+		{
+			"ImportPath": "github.com/jeffail/gabs",
+			"Rev": "785f0ec81781dbad8dfda8e4283fbba0ea3f0b88"
+		},
+		{
+			"ImportPath": "github.com/samalba/dockerclient",
+			"Rev": "3c5f87482db1f82cf350f62aa5214aabd6016502"
 		},
 		{
 			"ImportPath": "golang.org/x/net/context",

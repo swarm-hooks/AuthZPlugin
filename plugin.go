@@ -5,28 +5,67 @@ import (
 	"encoding/json"
 	"regexp"
 
-	dockerapi "github.com/docker/docker/api"
-	dockerclient "github.com/docker/engine-api/client"
-	
+	//	dockerapi "github.com/docker/docker/api"
+	//	dockerclient "github.com/docker/engine-api/client"
+	"github.com/AuthZPluginBackEnd/api"
 	"github.com/AuthZPluginBackEnd/authz"
+	"github.com/AuthZPluginBackEnd/impl"
+	log "github.com/Sirupsen/logrus"
+	dockerclient "github.com/samalba/dockerclient"
+
+	"github.com/docker/go-connections/tlsconfig"
 )
 
+var startRegExp = regexp.MustCompile(`/containers/(.*)/start$`)
+var aclsAPI api.ACLsBackAPI
+
+type authzPlugin struct {
+	client *dockerclient.DockerClient
+}
+
 func newPlugin(dockerHost string) (*authzPlugin, error) {
-	client, err := dockerclient.NewClient(dockerHost, dockerapi.DefaultVersion.String(), nil, nil)
+	c, _ := tlsconfig.Client(tlsconfig.Options{InsecureSkipVerify: true})
+	client, err := dockerclient.NewDockerClient(dockerHost, c)
+	//	client, err := dockerclient.NewClient(dockerHost, dockerapi.DefaultVersion.String(), nil, nil)
+	//	dockerclient.new
 	if err != nil {
 		return nil, err
 	}
+
+	//---
+	aclsAPI = new(impl.ACLsBackDefaultImpl)
+	//	aclsAPI.Init()
+
+	//TODO reflection using configuration file tring for the backend type
+
+	log.Info("Init provision engine OK")
+
+	//--
+
 	return &authzPlugin{client: client}, nil
 }
 
-var (
-	startRegExp = regexp.MustCompile(`/containers/(.*)/start$`)
-)
+func (p *authzPlugin) AuthZReq(req authz.Request) authz.Response {
 
-type authzPlugin struct {
-	client *dockerclient.Client
+	if req.RequestBody != nil {
+		var containerConfig dockerclient.ContainerConfig
+		if err := json.NewDecoder(bytes.NewReader(req.RequestBody)).Decode(&containerConfig); err != nil {
+			return authz.Response{Err: err.Error()}
+		}
+
+		//Container config may be empty - also sometime we may use another sturct?
+		isAllowed := aclsAPI.ValidateRequest(req, containerConfig)
+
+		if !isAllowed {
+			return authz.Response{Msg: "Put some message here"}
+		}
+		return authz.Response{Allow: true}
+	}
+	return authz.Response{Msg: "Put some message here"}
 }
 
+/*
+//An example with volumes...
 func (p *authzPlugin) AuthZReq(req authz.Request) authz.Response {
 	if req.RequestMethod == "POST" && startRegExp.MatchString(req.RequestURI) {
 		// this is deprecated in docker, remove once hostConfig is dropped to
@@ -73,6 +112,7 @@ func (p *authzPlugin) AuthZReq(req authz.Request) authz.Response {
 noallow:
 	return authz.Response{Msg: "volumes are not allowed"}
 }
+*/
 
 func (p *authzPlugin) AuthZRes(req authz.Request) authz.Response {
 	return authz.Response{Allow: true}

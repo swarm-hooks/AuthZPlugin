@@ -2,10 +2,13 @@
 package authz
 
 import (
-	"github.com/AuthZPluginBackEnd/handlers"
 	"net/http"
 
+	"github.com/AuthZPluginBackEnd/handlers"
+
 	"github.com/docker/docker/pkg/authorization"
+	
+
 )
 
 const (
@@ -22,6 +25,7 @@ type Response authorization.Response
 
 // Plugin represent the interface a plugin must fulfill.
 type Plugin interface {
+	//Review
 	AuthZReq(Request) Response
 	AuthZRes(Request) Response
 }
