@@ -1,6 +1,6 @@
 {
 	"ImportPath": "github.com/AuthZPluginBackEnd",
-	"GoVersion": "go1.5.2",
+	"GoVersion": "go1.5.3",
 	"Packages": [
 		"./..."
 	],
@@ -47,10 +47,6 @@
 		{
 			"ImportPath": "github.com/gorilla/mux",
 			"Rev": "26a6070f849969ba72b72256e9f14cf519751690"
-		},
-		{
-			"ImportPath": "github.com/jeffail/gabs",
-			"Rev": "785f0ec81781dbad8dfda8e4283fbba0ea3f0b88"
 		},
 		{
 			"ImportPath": "github.com/samalba/dockerclient",
