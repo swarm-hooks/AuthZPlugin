@@ -6,7 +6,7 @@ import (
 	"github.com/Sirupsen/logrus"
 	"github.com/AuthZPluginBackEnd/authz"
 )
-
+//TODO - Change names
 const (
 	defaultDockerHost   = "unix:///var/run/docker.sock"
 	defaultPluginSocket = "/var/run/docker/plugins/docker-novolume-plugin.sock"

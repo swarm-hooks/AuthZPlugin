@@ -29,7 +29,6 @@ func (*ACLsBackDefaultImpl) ValidateRequest(req authz.Request, containerConfig d
 	switch eventType {
 	case states.ContainerCreate:
 		tenantIdToValidate := req.RequestHeaders[headers.AuthZTenantIdHeaderName]
-		//		tenantIdToValidate := r.Header.Get(headers.AuthZTenantIdHeaderName)
 		isValid := utils.CheckRefsOwnerships(tenantIdToValidate, containerConfig)
 		return isValid
 
@@ -48,12 +47,15 @@ func (*ACLsBackDefaultImpl) ValidateRequest(req authz.Request, containerConfig d
 	}
 }
 
+//TODO - Consdier refactor to authZReq & authzResp
+
 //startRegExp = regexp.MustCompile(`/containers/(.*)/start$`)
 //createRegExp = regexp.MustCompile(`/containers/(.*)/create$`)
 //	listRegExp = regexp.MustCompile(`/containers/(.*)/json(.*)`)
 
 /*Probably should use regular expressions here*/
 func eventParse(reqURI string) states.EventEnum {
+
 	log.Debug("Got the uri...", reqURI)
 
 	if strings.Contains(reqURI, "/containers") && (strings.Contains(reqURI, "create")) {
@@ -81,9 +83,5 @@ func eventParse(reqURI string) states.EventEnum {
 		return states.PassAsIs
 	}
 	return states.NotSupported
+	//TODO - Cover whole API
 }
-
-//Init - Any required initialization
-//func (*DefaultACLsImpl) Init() error {
-//	return nil
-//}

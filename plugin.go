@@ -10,7 +10,6 @@ import (
 	"github.com/AuthZPluginBackEnd/api"
 	"github.com/AuthZPluginBackEnd/authz"
 	"github.com/AuthZPluginBackEnd/impl"
-	log "github.com/Sirupsen/logrus"
 	dockerclient "github.com/samalba/dockerclient"
 
 	"github.com/docker/go-connections/tlsconfig"
@@ -26,25 +25,16 @@ type authzPlugin struct {
 func newPlugin(dockerHost string) (*authzPlugin, error) {
 	c, _ := tlsconfig.Client(tlsconfig.Options{InsecureSkipVerify: true})
 	client, err := dockerclient.NewDockerClient(dockerHost, c)
-	//	client, err := dockerclient.NewClient(dockerHost, dockerapi.DefaultVersion.String(), nil, nil)
-	//	dockerclient.new
+
 	if err != nil {
 		return nil, err
 	}
 
-	//---
 	aclsAPI = new(impl.ACLsBackDefaultImpl)
-	//	aclsAPI.Init()
-
-	//TODO reflection using configuration file tring for the backend type
-
-	log.Info("Init provision engine OK")
-
-	//--
-
 	return &authzPlugin{client: client}, nil
 }
 
+//Before passing request to manager
 func (p *authzPlugin) AuthZReq(req authz.Request) authz.Response {
 
 	if req.RequestBody != nil {
@@ -62,6 +52,11 @@ func (p *authzPlugin) AuthZReq(req authz.Request) authz.Response {
 		return authz.Response{Allow: true}
 	}
 	return authz.Response{Msg: "Put some message here"}
+}
+
+//Before returning response to client
+func (p *authzPlugin) AuthZRes(req authz.Request) authz.Response {
+	return authz.Response{Allow: true}
 }
 
 /*
@@ -113,7 +108,3 @@ noallow:
 	return authz.Response{Msg: "volumes are not allowed"}
 }
 */
-
-func (p *authzPlugin) AuthZRes(req authz.Request) authz.Response {
-	return authz.Response{Allow: true}
-}
