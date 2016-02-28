@@ -23,13 +23,13 @@ var (
 func main() {
 	flag.Parse()
 
-	novolume, err := newPlugin(*flDockerHost)
+	authZ, err := newPlugin(*flDockerHost)
 	if err != nil {
 		logrus.Fatal(err)
 	}
 
 	// TODO(runcom): parametrize this when the bin starts
-	h := authz.NewHandler(novolume)
+	h := authz.NewHandler(authZ)
 	if err := h.ServeUnix("root", *flPluginSocket); err != nil {
 		logrus.Fatal(err)
 	}
