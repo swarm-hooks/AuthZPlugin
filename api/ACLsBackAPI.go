@@ -1,7 +1,7 @@
 package api
 
 import (
-	"github.com/AuthZPluginBackEnd/authz"
+	"github.com/AuthZPlugin/authz"
 	"github.com/samalba/dockerclient"
 )
 

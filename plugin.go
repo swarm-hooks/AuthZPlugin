@@ -7,9 +7,9 @@ import (
 
 	//	dockerapi "github.com/docker/docker/api"
 	//	dockerclient "github.com/docker/engine-api/client"
-	"github.com/AuthZPluginBackEnd/api"
-	"github.com/AuthZPluginBackEnd/authz"
-	"github.com/AuthZPluginBackEnd/impl"
+	"github.com/AuthZPlugin/api"
+	"github.com/AuthZPlugin/authz"
+	"github.com/AuthZPlugin/impl"
 	dockerclient "github.com/samalba/dockerclient"
 
 	"github.com/docker/go-connections/tlsconfig"

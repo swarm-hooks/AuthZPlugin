@@ -7,12 +7,12 @@ import (
 	"strings"
 
 	//	"github.com/docker/swarm/cluster/swarm"
-	"github.com/AuthZPluginBackEnd/states"
+	"github.com/AuthZPlugin/states"
 	log "github.com/Sirupsen/logrus"
 	//	"github.com/docker/swarm/cluster/swarm"
-	"github.com/AuthZPluginBackEnd/authz"
-	"github.com/AuthZPluginBackEnd/headers"
-	"github.com/AuthZPluginBackEnd/utils"
+	"github.com/AuthZPlugin/authz"
+	"github.com/AuthZPlugin/headers"
+	"github.com/AuthZPlugin/utils"
 	"github.com/samalba/dockerclient"
 )
 

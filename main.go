@@ -4,7 +4,7 @@ import (
 	"flag"
 
 	"github.com/Sirupsen/logrus"
-	"github.com/AuthZPluginBackEnd/authz"
+	"github.com/AuthZPlugin/authz"
 )
 //TODO - Change names
 const (

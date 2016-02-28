@@ -1,10 +1,10 @@
-// authz project AuthZPluginBackEnd.go
+// authz project AuthZPlugin.go
 package authz
 
 import (
 	"net/http"
 
-	"github.com/AuthZPluginBackEnd/handlers"
+	"github.com/AuthZPlugin/handlers"
 
 	"github.com/docker/docker/pkg/authorization"
 	
